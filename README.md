@@ -96,7 +96,7 @@ URL BASE ```localhost:8080/produtos/id```
 
 Retorna o produto com o id selecionado, caso não tenha o id na base de dados ira retornar status 404
 
-#### GET ID
+#### GET COD BARRAS
 
 URL BASE ```localhost:8080/produtos/codbarras/{codbarras}```
 
@@ -125,5 +125,65 @@ Irá passar o id na url e editar as informações do mesmo, caso não tenha o id
 URL BASE ```localhost:8080/produtos/id```
 
 Irá deletar o id que esta na url, caso não tenha o id na base de dados ira retornar status 404
+
+### Compras
+
+####POST
+
+URL BASE ```localhost:8080/compras/```
+
+Irá informar um CPF e um array com objetos do id do produto e a quantidade do mesmo, caso o cpf não exista ira retornar erro 404, caso o produto esteja sem estoque ira retornar erro 400
+Exemplo de JSON a ser enviado no corpo da requisição:
+
+```JSON
+{
+    "cpfCliente": "123.456.789-10",
+		"produtos":[
+			{
+				"id": 1,
+				"quantidade": 1
+				
+			},
+			{
+				"id": 2,
+				"quantidade": 3
+			}
+		]
+			
+		
+
+}
+```
+No corpo da resposta irá retornar o id, a nota fiscal e o valor da compra que irá ser adicionado no valor total do usuário e a quantidade irá ser subtraida do estoque dos produtos que estão no array de compras
+
+Exemplo de JSON que irá ser retornado no corpo da resposta:
+```JSON
+{
+  "id": "61abe8f074a515650bf1092b",
+  "notafiscal": "690e701c-d545-43ce-8ab5-96ed967bfb12",
+  "produtos": [
+    {
+      "id": 1,
+      "nome": "Presunto",
+      "marca": "Seara",
+      "quantidade": 1,
+      "preco": 25.25,
+      "categoria": "Frios",
+      "codbarras": 719853630986
+    },
+    {
+      "id": 2,
+      "nome": "Biscoito",
+      "marca": "Richester",
+      "quantidade": 3,
+      "preco": 2.5,
+      "categoria": "Cereais",
+      "codbarras": 411359940245
+    }
+  ],
+  "cpfCliente": "123.456.789-11",
+  "valorcompras": 32.75
+}
+```
 
 
