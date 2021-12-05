@@ -8,7 +8,7 @@ Api feita em spring boot que permite realizar o cadastro de clientes e produtos 
 ## Clientes
 
 ### POST
-URL BASE ```RAW localhost:8080/clientes/```
+URL BASE ```localhost:8080/clientes/```
 
 Exemplo de JSON a ser enviado no corpo da requisição:
 ```JSON
@@ -193,13 +193,13 @@ Retorna a lista de todas as compras registradas
 
 ### GET COMPRAS POR CPF
 
-URL BASE ```compras/cpf/{cpf}```
+URL BASE ```localhost:8080/compras/cpf/{cpf}```
 
 Retorna a lista de todas as compras registradas por um cpf, caso o cpf não exista ira retornar erro 404
 
 ### GET COMPRA POR NF
 
-URL BASE ```compras/notafiscal/{notafiscal}```
+URL BASE ```localhost:8080/compras/notafiscal/{notafiscal}```
 
 Retorna a compra pela nota fiscal, caso a nota fiscal não exista ira retornar erro 404
 
