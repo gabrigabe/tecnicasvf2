@@ -3,11 +3,11 @@
 
 Api feita em spring boot que permite realizar o cadastro de clientes e produtos em Postgres SQL e o registro de compras em MONGODB
 
-##ROTAS
+## ROTAS
 
 ### Clientes
 
-####POST
+#### POST
 URL BASE ```RAW localhost:8080/clientes/```
 
 Exemplo de JSON a ser enviado:
