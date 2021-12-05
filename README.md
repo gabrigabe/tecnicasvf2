@@ -3,11 +3,11 @@
 
 Api feita em spring boot que permite realizar o cadastro de clientes e produtos em Postgres SQL e o registro de compras em MONGODB
 
-## ROTAS
+# ROTAS
 
-### Clientes
+## Clientes
 
-#### POST
+### POST
 URL BASE ```RAW localhost:8080/clientes/```
 
 Exemplo de JSON a ser enviado no corpo da requisição:
@@ -29,34 +29,34 @@ Retorna status 200 e o body completo do cliente:
 }
 
 ```
-#### GET
+### GET
 
 URL BASE ```localhost:8080/clientes/```
 
 Retorna a lista de todas os clientes cadastrados
 
-#### GET ID
+### GET ID
 
 URL BASE ```localhost:8080/clientes/id```
 
 Retorna o cliente com o id selecionado, caso não tenha o id na base de dados ira retornar status 404
 
-#### PUT
+### PUT
 
 URL BASE ```localhost:8080/clientes/id```
 
 Irá passar o id na url e editar as informações do mesmo, caso não tenha o id na base de dados ira retornar status 404
 
-#### DELETE
+### DELETE
 
 URL BASE ```localhost:8080/clientes/id```
 
 Irá deletar o id que esta na url, caso não tenha o id na base de dados ira retornar status 404
 
 
-### Produtos
+## Produtos
 
-#### POST
+### POST
 
 URL BASE ```localhost:8080/produtos/```
 
@@ -84,51 +84,51 @@ Irá retornar junto com o ID e o codigo de barras atribuido a ele
 }
 ```
 
-#### GET
+### GET
 
 URL BASE ```localhost:8080/produtos/```
 
 Retorna a lista de todas os produtos cadastrados
 
-#### GET ID
+### GET ID
 
 URL BASE ```localhost:8080/produtos/id```
 
 Retorna o produto com o id selecionado, caso não tenha o id na base de dados ira retornar status 404
 
-#### GET COD BARRAS
+### GET COD BARRAS
 
 URL BASE ```localhost:8080/produtos/codbarras/{codbarras}```
 
 Retorna o produto codigo de barras que esta na url, caso não tenha na base de dados ira retornar status 404
 
-#### GET CATEGORIA
+### GET CATEGORIA
 
 URL BASE ```localhost:8080/produtos/categoria/{categoria}```
 
 Retorna todos os produtos com a categoria dita na url, caso não tenha na base de dados ira retornar status 404
 
-#### GET SEM ESTOQUE
+### GET SEM ESTOQUE
 
 URL BASE ```localhost:8080/produtos/semestoque```
 
 Retorna todos os produtos que estão com a quantidade de estoque 0 no momento
 
-#### PUT
+### PUT
 
 URL BASE ```localhost:8080/produtos/id```
 
 Irá passar o id na url e editar as informações do mesmo, caso não tenha o id na base de dados ira retornar status 404
 
-#### DELETE
+### DELETE
 
 URL BASE ```localhost:8080/produtos/id```
 
 Irá deletar o id que esta na url, caso não tenha o id na base de dados ira retornar status 404
 
-### Compras
+## Compras
 
-####POST
+### POST
 
 URL BASE ```localhost:8080/compras/```
 
@@ -185,5 +185,24 @@ Exemplo de JSON que irá ser retornado no corpo da resposta:
   "valorcompras": 32.75
 }
 ```
+### GET
+
+URL BASE ```localhost:8080/compras/```
+
+Retorna a lista de todas as compras registradas
+
+### GET COMPRAS POR CPF
+
+URL BASE ```compras/cpf/{cpf}```
+
+Retorna a lista de todas as compras registradas por um cpf, caso o cpf não exista ira retornar erro 404
+
+### GET COMPRA POR NF
+
+URL BASE ```compras/notafiscal/{notafiscal}```
+
+Retorna a compra pela nota fiscal, caso a nota fiscal não exista ira retornar erro 404
+
+
 
 
